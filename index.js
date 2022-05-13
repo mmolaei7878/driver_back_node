@@ -7,7 +7,7 @@ const storeRoutes = require('./api/routes/store')
 const orderRoutes = require('./api/routes/order')
 const orderDriverRoutes = require('./api/routes/order_driver')
 
-const socketio = require('./socket')
+const socketio = require('./api/socket')
 const helmet = require("helmet");
 const compression = require("compression");
 const path = require("path");
@@ -81,7 +81,7 @@ app.use((error, req, res, next) => {
 mongoose.connect('mongodb+srv://molaei:molaei78@cluster0.0qt6v.mongodb.net/dispatcher?retryWrites=true&w=majority')
     .then(result => {
         const server = app.listen(port);
-        const io = require('./socket')
+        const io = require('./api/socket')
         io.init(server).on('connection', socket => {
 
 

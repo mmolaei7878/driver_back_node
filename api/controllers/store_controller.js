@@ -1,5 +1,5 @@
 const Store = require('../models/store')
-const socketio = require('../../socket');
+const socketio = require('../socket');
 
 
 exports.getStores = async (req, res, next) => {

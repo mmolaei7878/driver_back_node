@@ -49,13 +49,15 @@ app.use(morgan('combined', { stream: accessLogStream }));
 
 
 
-app.use('/api/auth', authRoutes);
-app.use('/api/driver', driverRoutes);
-app.use('/api/store', storeRoutes);
-app.use('/api/order', orderRoutes);
-app.use('/api/order-driver', orderDriverRoutes);
+// app.use('/api/auth', authRoutes);
+// app.use('/api/driver', driverRoutes);
+// app.use('/api/store', storeRoutes);
+// app.use('/api/order', orderRoutes);
+// app.use('/api/order-driver', orderDriverRoutes);
 
-
+app.get('orders', (req, res, next) => {
+    res.json({ message: "this is from mamad and proobelm is from exporting funcs" });
+});
 
 
 

@@ -77,8 +77,8 @@ app.use((error, req, res, next) => {
     const data = error.data;
     res.status(statusCode).json({ message: message, data: data });
 });
-
-mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.0qt6v.mongodb.net/${process.env.MONGO_DATABASE}?retryWrites=true&w=majority`)
+//MONGO_USER=molaei MONGO_PASSWORD=molaei78 MONGO_DATABASE=dispatcher
+mongoose.connect('mongodb+srv://molaei:molaei78@cluster0.0qt6v.mongodb.net/dispatcher?retryWrites=true&w=majority')
     .then(result => {
         const server = app.listen(port);
         const io = require('./socket')

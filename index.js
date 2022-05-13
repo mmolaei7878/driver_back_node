@@ -1,11 +1,11 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-const driverRoutes = require('./routes/driver')
-const authRoutes = require('./routes/auth')
-const storeRoutes = require('./routes/store')
-const orderRoutes = require('./routes/order')
-const orderDriverRoutes = require('./routes/order_driver')
+const driverRoutes = require('./api/routes/driver')
+const authRoutes = require('./api/routes/auth')
+const storeRoutes = require('./api/routes/store')
+const orderRoutes = require('./api/routes/order')
+const orderDriverRoutes = require('./api/routes/order_driver')
 
 const socketio = require('./socket')
 const helmet = require("helmet");

@@ -19,22 +19,22 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 
-// const swaggerJsDoc = require('swagger-jsdoc');
-// const swaggerUi = require('swagger-ui-express');
-// const swaggerOption = {
-//     swaggerDefinition: {
-//         info: {
-//             title: 'Dispatcher & Driver',
-//             description: 'written in NodeJS ',
-//             servers: ['http://localhost:8080']
-//         }
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+const swaggerOption = {
+    swaggerDefinition: {
+        info: {
+            title: 'Dispatcher & Driver',
+            description: 'written in NodeJS ',
+            servers: ['http://localhost:8080']
+        }
 
-//     },
-//     apis: ['./routes/*.js']
-// }
+    },
+    apis: ['./routes/*.js']
+}
 
-// const swaggerDocs = swaggerJsDoc(swaggerOption);
-// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+const swaggerDocs = swaggerJsDoc(swaggerOption);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'),
@@ -49,17 +49,11 @@ app.use(morgan('combined', { stream: accessLogStream }));
 
 
 
-// app.use('/api/auth', authRoutes);
-// app.use('/api/driver', driverRoutes);
-// app.use('/api/store', storeRoutes);
-// app.use('/api/order', orderRoutes);
-// app.use('/api/order-driver', orderDriverRoutes);
-
-app.get('orders', (req, res, next) => {
-    res.json({ message: "this is from mamad and proobelm is from exporting funcs" });
-});
-
-
+app.use('/api/auth', authRoutes);
+app.use('/api/driver', driverRoutes);
+app.use('/api/store', storeRoutes);
+app.use('/api/order', orderRoutes);
+app.use('/api/order-driver', orderDriverRoutes);
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
